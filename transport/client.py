@@ -9,6 +9,6 @@ class Client():
             self.cargo_weight = cargo_weight
         except:
             print("Вес груза должен быть обязательно указан числом")
-        if not (is_vip == True or is_vip == False):
-            print("Флаг вип статуса указывается true или false")
+        if not(isinstance(is_vip,bool)):
+            print("Ошибка!")
         self.is_vip = bool(is_vip)
