@@ -22,13 +22,22 @@ def menu():
             weight = float(weight)
          except:
             print("Ошибка! Вес вводиться числом")
-         else:
-            is_vip=input("Клиент VIP?(Да/Нет):").strip().lower()=='да'
+         is_vip=input("Клиент VIP?(1-Да/2-Нет):")
+         if is_vip == '1':
+            is_vip = True
             company.add_client(Client(name, weight, is_vip))
-            print("Клиент добавлен")
-         
+            print('Клиент добавлен')
+         elif is_vip == '2':
+            is_vip = False
+            company.add_client(Client(name, weight, is_vip))
+            print('Клиент добавлен')
+         else:
+            print("Введи знчение (1 или 2)")
+            print("Ошибка!")
+
+
       elif res=="2":
-         type_vehicle=input("Выберите вид транспорта(1-корабль,2-грузовик):")
+         type_vehicle=input("Выберите вид транспорта(1-судно,2-грузовик):")
          capacity=input("Введите грузоподъёмность: ")
          try:
             capacity = float(capacity)
